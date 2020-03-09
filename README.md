@@ -1,5 +1,5 @@
 # Game_project
-Game project
+
 Btw, tu piszmy komentarze/notatki, które mogą się przydać dla ogólnej wiedzy
 
 !!!!!!!!!!! NIE MARTWIMY SIĘ BUGAMI Z KOLIZJĄ XD !!!!!!!!!!!!!!!
