@@ -57,12 +57,9 @@ public class Player : MonoBehaviour
 
     void CheckInput() //prawdopodobnie dodge i attack do zmiany lub modyfikacji wg animacji
     {
-        //movement (do zmiany) obiekt musi się obkrecac zgodnie z kierunkiem ruchu
-        float translation = Input.GetAxis("Vertical") * speed;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-
-        translation *= Time.deltaTime;
-        rotation *= Time.deltaTime;
+        //movement (do zmiany)
+        float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
 
         transform.Translate(0, 0, translation);
 
