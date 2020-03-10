@@ -2,6 +2,12 @@
 
 Btw, tu piszmy komentarze/notatki, które mogą się przydać dla ogólnej wiedzy. Jeśli uważasz, że potrzebne są dwa odzielne pliki to stwórz jakiś txt i tam pisz swoje komentarze, a ja tu będę.
 
+:)
+Pls, jak coś testujesz to stwórz drugą scene/skopiuj moją, aby uniknąć jakichś konfliktów gita lub ogólnych bugów w skryptach
+:)
+Iiiiii dla przypomnienia dla wszystkich
+Git nie lubi plików o pojemności większej niż 25mb, ale to bardziej będzie boleć przy 3d/muzyce, choć na javie nie miałam problemu z takimi rzeczami. Także jak coś wrzucamy poza skryptami/2d itp, to sprawdzamy rozmiar xD
+
 !!!!!!!!!!! NIE MARTWIMY SIĘ BUGAMI Z KOLIZJĄ XD !!!!!!!!!!!!!!!
 
 !!!!!!!!!! Ustawienia Unity Input'u w silniku i kodzie (nazwy, które nie są "horizontal/vertical"), Jakby coś się zwaliło w ustawieniach inputu !!!!!!!!!!!!!!!!!
