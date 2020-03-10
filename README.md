@@ -5,7 +5,10 @@ Btw, tu piszmy komentarze/notatki, które mogą się przydać dla ogólnej wiedz
 :)
 Pls, jak coś testujesz to stwórz drugą scene/skopiuj moją, aby uniknąć jakichś konfliktów gita lub ogólnych bugów w skryptach
 :)
-Iiiiii dla przypomnienia dla wszystkich
+Pozatym jak ktoś zaczyna klepać jakąś dużą mechanikę czy coś to informujmy się, żeby przypadkiem nie dublować roboty :)
+
+!!!!!!! Iiiiii dla przypomnienia dla wszystkich !!!!!!!!!!!
+
 Git nie lubi plików o pojemności większej niż 25mb, ale to bardziej będzie boleć przy 3d/muzyce, choć na javie nie miałam problemu z takimi rzeczami. Także jak coś wrzucamy poza skryptami/2d itp, to sprawdzamy rozmiar xD
 
 !!!!!!!!!!! NIE MARTWIMY SIĘ BUGAMI Z KOLIZJĄ XD !!!!!!!!!!!!!!!
