@@ -1,5 +1,20 @@
 # Game_project
 
+Modele/Animacje
+Assets/Models/ i tu podzial wg folderow np.Player lub Weapon -modele i jeśli potrzeba Animator Controler/ głębiej folder Animations
+
+Prefaby bez podziału na foldery, ale dałam tam folder Weapon bo może będzie więcej broni
+Jak jest czegoś sporo to najlepiej folder zrobić
+Assets/Prefabs
+
+Scenes i Scripts tam bez folderów narazie - tak jak było
+
+
+
+
+
+
+
 Btw, tu piszmy komentarze/notatki, które mogą się przydać dla ogólnej wiedzy. Jeśli uważasz, że potrzebne są dwa odzielne pliki to stwórz jakiś txt i tam pisz swoje komentarze, a ja tu będę.
 
 :)
