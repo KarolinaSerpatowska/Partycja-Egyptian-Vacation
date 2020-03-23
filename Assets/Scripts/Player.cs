@@ -14,14 +14,12 @@ public class Player : MonoBehaviour
     }
 
     public States state;
-    /*
-        public float dodgeRate = 0.9f;
-        private float nextDodge;
-        public float attackRate = 0.9f;
-        private float nextAttack;
-        public float speed = 10.0f;
-        public float rotationSpeed = 100.0f;
-        */
+    
+    public float dodgeRate = 0.9f;
+    private float nextDodge;
+    public float attackRate = 0.9f;
+    private float nextAttack;
+   
 
     public float InputX;
     public float InputZ;
@@ -45,42 +43,44 @@ public class Player : MonoBehaviour
         anim = this.GetComponent<Animator>();
         cam = Camera.main;
         controller = this.GetComponent<CharacterController>();
+        //poniezsze na wszelki wypadek, zaczecia nowej gry nie po raz pierwszy
+        anim.SetBool("IsDeath", false);
+        anim.SetBool("IsAttack", false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /* do maszyny stanow
-        switch (state)
-        {
-            case States.Staying:
-               //staying
-                break;
-            case States.Running:
-                //run
-                break;
-            case States.Attacking:
-                //attack
-                break;
-            case States.Dodging:
-                //dodge
-                break;
-            case States.Dying:
-                //dying
-                break;
-        }*/
-
-        // CheckInput();
-
-        InputMagnitude();
-        
+        InputMagnitude(); //ogolnie sila nacisku na drazku i klawiaturze(klawiatura slabo dziala na tym)
+//sprawdzenie czy jestesmy na ziemi(character controller bez tego sie buguje)
         isGrounded = controller.isGrounded;
         if (isGrounded) verticalVel -= 0;
         else verticalVel -= 2;
 
         moveVector = new Vector3(0, verticalVel, 0);
         controller.Move(moveVector);
-
+//maszyna stanow
+        switch (state)
+        {
+            case States.Dying:
+                //tu trzeba ogolnie wylaczyc sterowanie i pokazac jakies menu czy cos
+                anim.SetBool("IsDeath", true);
+                break;
+            case States.Attacking:
+                anim.SetBool("IsAttack", true);
+                break;
+            case States.Dodging:
+                break;
+            case States.Staying:
+               // anim.SetBool("IsAttack", false);
+                CheckInputNotMove();
+                break;
+            case States.Moving:
+               // anim.SetBool("IsAttack", false);
+                CheckInputNotMove();
+                break;
+        }
+//------------------    
     }
 
     void PlayerMoveAndRotation()
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         desiredMoveDirection = forward * InputZ + right * InputX;
 
         if (!blockRotationPlayer)
-        {
+        {//poruszenie
             controller.Move(desiredMoveDirection * Time.deltaTime * moveSpeed);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
         }
@@ -130,22 +130,15 @@ public class Player : MonoBehaviour
         else state = States.Staying;
     }
 
-/*
-    void CheckInput() 
+    void CheckInputNotMove() 
     {
-        
-        float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-
-        transform.Translate(0, 0, translation);
-
-        transform.Rotate(0, rotation, 0);
-        //movement end
-
         if (Input.GetButton("Attack1") && Time.time>nextAttack)
         {
             //attack
             nextAttack = Time.time + attackRate;
+            state = States.Attacking;
+            anim.SetBool("IsAttack", true);
+            Debug.Log(state);
             Debug.Log("attackButton");
         }
 
@@ -153,14 +146,17 @@ public class Player : MonoBehaviour
         {
             //dodge
             nextDodge = Time.time + dodgeRate;
+            state = States.Dodging;
+            Debug.Log(state);
             Debug.Log("dodgeButton");
         }
 
         if (Input.GetButtonDown("Options"))
         {
             //opcje
+            state = States.Staying;
             Debug.Log("optionsButton");
         }
     }
-    */
+    
 }
