@@ -5,6 +5,8 @@ Zanim zaimportujesz menu to wrzuć cokolwiek z textMeshPro i zaktualizuj.
 
 
 ---------foldery----------
+Assety z modelami, które dodałeś do menu są w "Models",tak samo dźwięk dałam do "audio", zostawiłam na w Assets tylko te assety, których nie da się zakwalifikować konkretnie typu "standard assets" 
+
 
 
 Modele/Animacje
@@ -19,6 +21,9 @@ Jak jest czegoś sporo to najlepiej folder zrobić
 
 
 Assets/Prefabs
+
+
+Audio
 
 
 Scenes i Scripts tam bez folderów narazie - tak jak było
