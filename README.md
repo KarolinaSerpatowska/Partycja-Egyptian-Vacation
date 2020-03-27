@@ -1,4 +1,9 @@
 # Game_project
+Zanim zaimportujesz menu to wrzuć cokolwiek z textMeshPro i zaktualizuj.
+
+
+
+
 ---------foldery----------
 
 
