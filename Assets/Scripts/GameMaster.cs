@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
-    //niewiadomo czy tak bardzo potrzebny
-    //jak bedzie wiecej rzeczy
+    public Player player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
