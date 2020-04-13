@@ -1,4 +1,14 @@
 # Game_project
+
+
+!!!!!!!!!!!!!Dodałam do projektu z package manager'a w tej kolejności: "High definition RP" i "Shader Graph" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+
+Uwaga od tej chwili większość materiałów podstawowych z unity nie zadziała(różowe tekstury), trza tworzyć nowe ^^^ Jak będą jakieś problemy to jestem w stanie to przerobić.
+
+UWAGA 2 Masywana poprawa cieniowania i postprocessing itp
+
+
 Zanim zaimportujesz menu to wrzuć cokolwiek z textMeshPro i zaktualizuj.
 
 
