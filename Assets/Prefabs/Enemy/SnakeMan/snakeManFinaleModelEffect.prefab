@@ -2988,7 +2988,7 @@ MonoBehaviour:
   isDead: 0
   seeingRadious: 4
   target: {fileID: 0}
-  agent: {fileID: 0}
+  agent: {fileID: 9047279503205144966}
   seePlayer: 0
   attackOffset: 0.3
   distance: 0

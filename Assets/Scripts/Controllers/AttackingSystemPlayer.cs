@@ -21,14 +21,17 @@ public class AttackingSystemPlayer : Attacable
     public override void Attack()
     {
         //RaycastHit hit;
+        
         if (attackPoint)
         {
             Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.transform.position, myStats.playerRangeAttack, LayerMask.GetMask("Enemy"));
             foreach (Collider enemy in hitEnemies)
             {
+                
                 Debug.Log("Hitted: " + enemy.name);
                 if (enemy.GetComponent<Attacable>())
                 {
+                    Debug.Log("Attack test machine");
                     enemy.GetComponent<Attacable>().TakeDamge(myStats.baseAttack);
                 }
             }

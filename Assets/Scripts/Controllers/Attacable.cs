@@ -39,8 +39,8 @@ public class Attacable : MonoBehaviour
         myStats.health -= damage;
     }
     public virtual void Attack(Attacable enemy)
-    {   
-       enemy.TakeDamge(myStats.baseAttack);
+    {
+        enemy.TakeDamge(myStats.baseAttack);
     }
     public virtual void Attack()
     {

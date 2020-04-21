@@ -42,7 +42,7 @@ public class EnemyController : AttackingSystemEnemy
                 //Atack Target.
                 nextAttack = Time.time + attackOffset;
                 this.Attack(target.GetComponent<Attacable>());
-                //Debug.Log("Attacking Player");
+                Debug.Log("Attacking Player");
                 
 
             }

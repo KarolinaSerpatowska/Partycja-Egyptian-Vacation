@@ -1426,7 +1426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c781f4c6c0984684797ea64bdb7e4ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  myStats: {fileID: 0}
+  isDead: 0
+  attackPoint: {fileID: 2627214911725193438}
 --- !u!114 &376087543179332598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,25 +1457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1441480c6da91942a45bcf66dc79021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStats: {fileID: 376087543179332598}
-  isDead: 0
-  attackPoint: {fileID: 2627214911725193438}
   dodgeRate: 0.9
   attackRate: 0.9
-  InputX: 0
-  InputZ: 0
-  desiredMoveDirection: {x: 0, y: 0, z: 0}
-  blockRotationPlayer: 0
-  desiredRotationSpeed: 0.1
-  anim: {fileID: 7553092032611645485}
-  Speed: 0
-  allowPlayerRotation: 0
-  cam: {fileID: 0}
-  controller: {fileID: 7553092032604310853}
-  isGrounded: 0
-  moveSpeed: 3
-  focusedOn: {fileID: 0}
-  playerTransform: {fileID: 0}
 --- !u!1 &7553092032604343213
 GameObject:
   m_ObjectHideFlags: 0
