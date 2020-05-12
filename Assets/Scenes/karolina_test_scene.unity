@@ -824,6 +824,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6294202617659381818, guid: ebc3a4f6a3aac7b40aa8b5989dd546ae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Particle
+      objectReference: {fileID: 0}
     - target: {fileID: 7794849343463019366, guid: ebc3a4f6a3aac7b40aa8b5989dd546ae,
         type: 3}
       propertyPath: agent
@@ -839,6 +844,11 @@ PrefabInstance:
       propertyPath: myStats
       value: 
       objectReference: {fileID: 34256018}
+    - target: {fileID: 7794849343463019366, guid: ebc3a4f6a3aac7b40aa8b5989dd546ae,
+        type: 3}
+      propertyPath: attackOffset
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebc3a4f6a3aac7b40aa8b5989dd546ae, type: 3}
 --- !u!1001 &7553092033138730574
