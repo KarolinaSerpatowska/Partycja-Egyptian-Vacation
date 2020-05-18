@@ -29,11 +29,23 @@ public class EnemyController : Attacable
 
         anim = GetComponent<Animator>();
         setAnimToIdle();
+        isAttack = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPlaying(anim, "Attack1") || isPlaying(anim, "Attack2"))
+        {
+            isAttack = true;
+            if (weaponHitbox != null) weaponHitbox.SetActive(true);
+        }
+        else
+        {
+            isAttack = false;
+            attackCounter = 0;
+            if(weaponHitbox!=null) weaponHitbox.SetActive(false);
+        }
         distance = Vector3.Distance(transform.position, target.transform.position);
         if (!dead && distance <= seeingRadious)
         {
@@ -42,7 +54,7 @@ public class EnemyController : Attacable
             if (agent.velocity == Vector3.zero) setAnimToIdle(); 
             else setAnimToRun();
             agent.SetDestination(target.transform.position);
-            if (distance <= agent.stoppingDistance && Time.time > nextAttack)
+            if (distance <= agent.stoppingDistance && Time.time > nextAttack && !isPlaying(anim, "Attack1") && !isPlaying(anim,"Attack2") && !isPlaying(anim,"Attack_Special"))
             {
                 //Atack Target
                 agent.isStopped = true;
@@ -51,15 +63,17 @@ public class EnemyController : Attacable
                 if (num >= 0 && num <= 50) //choose normal attack
                 {
                     setAnimToAttack();
-                    //zmienic na hitboxy - if kolizja to trafienie
-                    this.Attack(target.GetComponent<Attacable>()); 
+                    // this.Attack(target.GetComponent<Attacable>());
+
                 }
                 else //choose special attack
                 {
                     setAnimToSpecialAttack();
                     //pewnie trzeba zmienic funkcje
-                    this.Attack(target.GetComponent<Attacable>());
+                    //tymczasowo----------------------------------------------------------
+                    //this.Attack(target.GetComponent<Attacable>()); //--------------------------------------------------------
                 }
+             //   target.GetComponent<Attacable>().showStats(); //test
             }
             FaceTarget();
         }
@@ -123,9 +137,11 @@ public class EnemyController : Attacable
         Gizmos.DrawWireSphere(transform.position, seeingRadious);
     }
 
-    public override void Die()
+    void Die()
     {
-        base.Die();
+        Destroy(weaponHitbox);
+        Destroy(GetComponent<HitboxCollider>());
+        this.GetComponent<HitboxCollider>().enabled = false; 
         //Debug.Log("Enemy health: " + myStats.health);
         Debug.Log("Enemy Died");
         Animator anim = this.gameObject.GetComponent<Animator>();

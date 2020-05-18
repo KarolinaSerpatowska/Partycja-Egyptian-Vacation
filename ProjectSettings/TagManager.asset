@@ -7,6 +7,9 @@ TagManager:
   - GameMaster
   - Enemy
   - Particle
+  - Hitbox
+  - WeaponHitbox
+  - CollisionForCamera
   layers:
   - Default
   - TransparentFX

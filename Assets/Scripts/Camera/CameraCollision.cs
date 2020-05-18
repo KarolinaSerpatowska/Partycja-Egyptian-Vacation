@@ -25,8 +25,9 @@ public class CameraCollision : MonoBehaviour
 
         if(Physics.Linecast(transform.parent.position,desiredCameraPosition,out hit))
         {
-            if(hit.collider.tag!="Player" && hit.collider.tag != "Enemy")
-            distance = Mathf.Clamp((hit.distance*0.86f), minDistance, maxDistance);
+            //if (hit.collider.tag != "Player" && hit.collider.tag != "Enemy" && hit.collider.tag != "Hitbox" && hit.collider.tag != "WeaponHitbox")
+            if(hit.collider.tag=="CollisionForCamera")
+            distance = Mathf.Clamp((hit.distance * 0.86f), minDistance, maxDistance);
         }
         else
         {

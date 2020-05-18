@@ -5,9 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Stats))]
 public class Attacable : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] protected Stats myStats;
     [SerializeField] protected bool isDead = false;
+    public GameObject weaponHitbox;
+    [SerializeField] protected bool isAttack;
+    [SerializeField] protected int attackCounter;
     
     private void Awake()
     {
@@ -18,6 +20,8 @@ public class Attacable : MonoBehaviour
         {
             Debug.Log("Stats Found");
         }
+        isAttack = false;
+        attackCounter = 0;
         
     }
     void Start()
@@ -25,22 +29,13 @@ public class Attacable : MonoBehaviour
         
     }
    
-    // Update is called once per frame
-    void Update()
-    {
-        Die();
-    }
-    public virtual void Die()
-    {
-       
-    }
     public virtual void TakeDamge(float damage)
     {
         myStats.health -= damage;
     }
     public virtual void Attack(Attacable enemy)
     {
-        enemy.TakeDamge(myStats.baseAttack);
+        if(enemy!=null) enemy.TakeDamge(myStats.baseAttack);
     }
     public virtual void Attack()
     {
@@ -57,4 +52,33 @@ public class Attacable : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, 1.5f);//Enemy attack Range
         
     }
+    
+    public bool isPlaying(Animator anim, string stateName)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
+    }
+
+    public void showStats()
+    {
+        Debug.Log(myStats.health);
+    }
+
+    public Stats getStats()
+    {
+        return myStats;
+    }
+
+    public bool getIsAttack()
+    {
+        return isAttack;
+    }
+
+    public void incAttackCounter(int val) { attackCounter += val; }
+
+    public int getAttackCounter() { return attackCounter; }
+
 }

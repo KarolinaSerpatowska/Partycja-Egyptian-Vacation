@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackingSystemPlayer : Attacable
 {
     [SerializeField] private GameObject attackPoint;
+    public GameObject hitbox;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +19,12 @@ public class AttackingSystemPlayer : Attacable
         
     }
 
-    public override void Attack()
+    public override void Attack(Attacable target)
     {
+
+
         //RaycastHit hit;
-        
+        /*
         if (attackPoint)
         {
             Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.transform.position, myStats.playerRangeAttack, LayerMask.GetMask("Enemy"));
@@ -36,6 +39,6 @@ public class AttackingSystemPlayer : Attacable
                 }
             }
             Debug.Log("Hitted Enemies: " + hitEnemies.Length);
-        }
+        }*/
     }
 }

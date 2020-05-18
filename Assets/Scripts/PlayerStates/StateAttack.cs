@@ -22,12 +22,13 @@ public class StateAttack : IState
         anim.SetBool("IsAttack", true);
         cam = Camera.main;
         playerTransform = PlayerManger.instance.player.transform;
+
     }
 
     public void Execute()
     {
-        owner.GetComponent<Player>().Attack();
-        RightButtonClick();
+        Debug.Log("ATTACK");
+        //RightButtonClick();
         Debug.Log("updating attack state");
     }
 
@@ -69,6 +70,5 @@ public class StateAttack : IState
         focusedOn = null;
         isFocus = false;
     }
-
 
 }

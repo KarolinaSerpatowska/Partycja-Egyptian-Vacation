@@ -19,4 +19,10 @@ public class StateMachine
     {
         if (currState != null) currState.Execute();
     }
+
+    public IState getCurrState()
+    {
+        return currState;
+    }
+
 }
