@@ -14,6 +14,7 @@ public class EnemyController : Attacable
     public float distance;
     bool dead = false;
     Animator anim;
+    public Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class EnemyController : Attacable
         anim = GetComponent<Animator>();
         setAnimToIdle();
         isAttack = false;
+        canvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,9 +52,11 @@ public class EnemyController : Attacable
         if (!dead && distance <= seeingRadious)
         {
             seePlayer = true;
+            canvas.gameObject.SetActive(true);
             agent.isStopped = false; //zeby sie nie poruszal niepotrzebnie
             if (agent.velocity == Vector3.zero) setAnimToIdle(); 
             else setAnimToRun();
+
             agent.SetDestination(target.transform.position);
             if (distance <= agent.stoppingDistance && Time.time > nextAttack && !isPlaying(anim, "Attack1") && !isPlaying(anim,"Attack2") && !isPlaying(anim,"Attack_Special"))
             {
@@ -80,6 +84,7 @@ public class EnemyController : Attacable
         else
         {
             seePlayer = false;
+            canvas.gameObject.SetActive(false);
             agent.isStopped = true; //nie biegaj mi tu
             setAnimToIdle();
         }

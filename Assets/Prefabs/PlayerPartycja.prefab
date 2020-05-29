@@ -1494,6 +1494,7 @@ MonoBehaviour:
   weaponHitbox: {fileID: 1079189841}
   isAttack: 0
   attackCounter: 0
+  bar: {fileID: 0}
 --- !u!114 &376087543179332598
 MonoBehaviour:
   m_ObjectHideFlags: 0

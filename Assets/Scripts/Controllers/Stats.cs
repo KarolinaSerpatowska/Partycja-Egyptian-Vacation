@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] public float maxHealth = 100f;
     [SerializeField] public float health;
     [SerializeField] public float baseAttack = 20f;
     [SerializeField] public float playerRangeAttack = 10f;

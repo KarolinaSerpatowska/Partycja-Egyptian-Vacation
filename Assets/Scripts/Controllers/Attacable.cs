@@ -10,6 +10,7 @@ public class Attacable : MonoBehaviour
     public GameObject weaponHitbox;
     [SerializeField] protected bool isAttack;
     [SerializeField] protected int attackCounter;
+    public GameObject bar;
     
     private void Awake()
     {
@@ -22,8 +23,9 @@ public class Attacable : MonoBehaviour
         }
         isAttack = false;
         attackCounter = 0;
-        
+        bar.GetComponent<HealthBar>().setMax(myStats.maxHealth * 1.0f);
     }
+
     void Start()
     {
         
@@ -32,6 +34,7 @@ public class Attacable : MonoBehaviour
     public virtual void TakeDamge(float damage)
     {
         myStats.health -= damage;
+        bar.GetComponent<HealthBar>().setBar(myStats.health*1.0f);
     }
     public virtual void Attack(Attacable enemy)
     {
