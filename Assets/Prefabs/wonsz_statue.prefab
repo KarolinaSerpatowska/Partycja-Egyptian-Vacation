@@ -432,6 +432,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: lava_plane
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: bb5064507a954ad479fdcdb5d5398a61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: bb5064507a954ad479fdcdb5d5398a61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: bb5064507a954ad479fdcdb5d5398a61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb5064507a954ad479fdcdb5d5398a61, type: 3}
 --- !u!4 &7163675599107266553 stripped

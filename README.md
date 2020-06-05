@@ -1,6 +1,11 @@
 # Game_project
 
 
+Nie wrzucamy obiektów atakujących na hitboxach do grup
+
+
+
+
 !!!!!!!!!!!!!Dodałam do projektu z package manager'a w tej kolejności: "High definition RP" i "Shader Graph" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 
 

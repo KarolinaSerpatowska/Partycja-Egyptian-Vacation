@@ -46,4 +46,4 @@ Material:
     - Color_C2066BCA: {r: 1, g: 1, b: 1, a: 1}
     - Vector2_2F1452E0: {r: 0, g: 0.01, b: 0, a: 0}
     - Vector2_4D6048E4: {r: 4, g: 4, b: 0, a: 0}
-    - Vector2_E31001FC: {r: 0, g: 0.005, b: 0, a: 0}
+    - Vector2_E31001FC: {r: 0, g: 0.009, b: 0, a: 0}
