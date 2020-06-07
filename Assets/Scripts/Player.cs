@@ -60,4 +60,5 @@ public class Player : Attacable
     {
         isAttack = val;
     }
+
 }

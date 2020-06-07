@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
     public void setMax(float val)
     {
         slider = this.GetComponent<Slider>();
-        Debug.Log(val);
+        //Debug.Log(val);
 
         slider.maxValue = val;
         slider.value = slider.maxValue;

@@ -22,6 +22,11 @@ public class HitboxCollider : MonoBehaviour
             enemy.incAttackCounter(1);
             attacable.TakeDamge(other.transform.root.GetComponent<Attacable>().getStats().baseAttack);
         }
+        else if(other.gameObject.tag=="LavaHitbox" && this.gameObject.tag=="Player")
+        {
+            Debug.Log("Lava KOLIZJA");
+            attacable.TakeDamge(attacable.getStats().health);
+        }
     }
 
 }

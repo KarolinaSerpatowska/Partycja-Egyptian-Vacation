@@ -16,6 +16,7 @@ public class EnemyController : Attacable
     Animator anim;
     public Canvas canvas;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +94,7 @@ public class EnemyController : Attacable
         //dead
         if (myStats.health <= 0 && !dead)
         {
+
             dead = true;
             //tutaj wylaczyc particle - tag particle
             Die();//jezeli zrobimy atak z dlugiego dystansu to bedzie trzeba to przeniesc poza tego ifa. 
