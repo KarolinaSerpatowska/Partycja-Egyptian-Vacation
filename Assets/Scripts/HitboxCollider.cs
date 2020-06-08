@@ -27,6 +27,14 @@ public class HitboxCollider : MonoBehaviour
             Debug.Log("Lava KOLIZJA");
             attacable.TakeDamge(attacable.getStats().health);
         }
+        else if (other.gameObject.tag != "CollisionForCamera" && other.gameObject.layer != this.gameObject.layer && other.gameObject.tag == "SpecialHitbox" && other.transform.root.GetComponent<EnemyController>().getSpecialAttack() && other.transform.root.GetComponent<Attacable>().getAttackCounter() == 0)
+        {
+            //Debug.Log(this.gameObject.tag + "z" + other.gameObject.tag);
+            Debug.Log("SPECIAL KOLIZJA");
+            Attacable enemy = other.transform.root.GetComponent<Attacable>();
+            enemy.incAttackCounter(1);
+            attacable.TakeDamge(other.transform.root.GetComponent<Attacable>().getStats().baseAttack+10);
+        }
     }
 
 }

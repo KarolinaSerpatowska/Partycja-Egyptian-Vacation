@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : Attacable
 {
@@ -15,7 +16,9 @@ public class EnemyController : Attacable
     bool dead = false;
     Animator anim;
     public Canvas canvas;
-
+    [SerializeField] Canvas mainCanvas;
+    [SerializeField] GameObject specialHitbox;
+    [SerializeField] bool specialAttack=false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class EnemyController : Attacable
         setAnimToIdle();
         isAttack = false;
         canvas.gameObject.SetActive(false);
+        specialAttack = false;
     }
 
     // Update is called once per frame
@@ -40,14 +44,23 @@ public class EnemyController : Attacable
     {
         if (isPlaying(anim, "Attack1") || isPlaying(anim, "Attack2"))
         {
+            specialAttack = false;
             isAttack = true;
             if (weaponHitbox != null) weaponHitbox.SetActive(true);
         }
+        else if(isPlaying(anim, "Attack_Special") && (!isPlaying(anim, "Attack1") || !isPlaying(anim, "Attack2")))
+        {
+            specialAttack = true;
+            isAttack = false;
+            if (specialHitbox != null) specialHitbox.SetActive(true);
+        }
         else
         {
+            specialAttack = false;
             isAttack = false;
             attackCounter = 0;
             if(weaponHitbox!=null) weaponHitbox.SetActive(false);
+            if (specialHitbox != null) specialHitbox.SetActive(false);
         }
         distance = Vector3.Distance(transform.position, target.transform.position);
         if (!dead && distance <= seeingRadious)
@@ -94,9 +107,9 @@ public class EnemyController : Attacable
         //dead
         if (myStats.health <= 0 && !dead)
         {
-
+            mainCanvas.GetComponent<ScoreText>().counter--;
             dead = true;
-            //tutaj wylaczyc particle - tag particle
+            transform.Find("EnemyParticles").gameObject.SetActive(false);
             Die();//jezeli zrobimy atak z dlugiego dystansu to bedzie trzeba to przeniesc poza tego ifa. 
         }
 
@@ -144,9 +157,15 @@ public class EnemyController : Attacable
         Gizmos.DrawWireSphere(transform.position, seeingRadious);
     }
 
+    public bool getSpecialAttack()
+    {
+        return specialAttack;
+    }
+
     void Die()
     {
         Destroy(weaponHitbox);
+        Destroy(specialHitbox);
         Destroy(GetComponent<HitboxCollider>());
         this.GetComponent<HitboxCollider>().enabled = false; 
         //Debug.Log("Enemy health: " + myStats.health);

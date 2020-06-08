@@ -12,6 +12,7 @@ TagManager:
   - CollisionForCamera
   - Fire
   - LavaHitbox
+  - SpecialHitbox
   layers:
   - Default
   - TransparentFX
