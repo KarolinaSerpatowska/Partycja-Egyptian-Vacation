@@ -18,17 +18,12 @@ public class PlayerInput : MonoBehaviour
             Debug.Log("attackButton");
             return new StateAttack(this.gameObject);
         }
-        else if (Input.GetButton("Dodge") && Time.time > nextDodge)
+        /*else if (Input.GetButton("Dodge") && Time.time > nextDodge)
         {
             //dodge
             nextDodge = Time.time + dodgeRate;
             Debug.Log("dodgeButton");
             return new StateDodge();
-        }
-        /*if (Input.GetButtonDown("Options"))
-        {
-            //opcje
-            Debug.Log("optionsButton");
         }*/
         else return new StateMove(this.gameObject);
     }

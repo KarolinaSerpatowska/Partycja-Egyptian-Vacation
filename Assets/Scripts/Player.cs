@@ -19,7 +19,7 @@ public class Player : Attacable
         hitboxCollider = this.GetComponent<HitboxCollider>();
         anim = this.gameObject.GetComponent<Animator>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -34,26 +34,33 @@ public class Player : Attacable
             attackCounter = 0;
             if (weaponHitbox != null) weaponHitbox.SetActive(false);
         }
-        if (isDead) stateMachine.ChangeState(new StateMove(this.gameObject));
-        else stateMachine.ChangeState(input.CheckInputNotMove());
-        stateMachine.Update();
+        //if (isDead) //stateMachine.ChangeState(new StateMove(this.gameObject));
+        //else
+        if (!isDead) stateMachine.ChangeState(input.CheckInputNotMove());
+        if(!isDead) stateMachine.Update();
 
-
-        /*
+        
         if (myStats.health <= 0 && !isDead)
         {
             isDead = true;
-            Die();
-        }*/
+            Die();          
+        }
     }
-
+/*
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5);
+        transform.position = spawner.transform.position;
+        isDead = false;
+        stateMachine.ChangeState(new StateMove(this.gameObject));
+        myStats.health = myStats.maxHealth;
+    }
+    */
     void Die()
     {
         Destroy(GetComponent<HitboxCollider>());
         Destroy(weaponHitbox);
         anim.SetTrigger("Die");
-        //respawn czy cos zamiast tego
-        //Destroy(this.gameObject, 5f); 
     }
 
     public void setIsAttack(bool val)
