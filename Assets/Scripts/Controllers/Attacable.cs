@@ -80,6 +80,13 @@ public class Attacable : MonoBehaviour
         return isAttack;
     }
 
+    public void heal(float val)
+    {
+        myStats.health += val;
+        if (myStats.health > myStats.maxHealth) myStats.health = myStats.maxHealth;
+        bar.GetComponent<HealthBar>().setBar(myStats.health * 1.0f);
+    }
+
     public void incAttackCounter(int val) { attackCounter += val; }
 
     public int getAttackCounter() { return attackCounter; }

@@ -21,7 +21,7 @@ public class Defeat : MonoBehaviour
         if (playerStats.health <= 0)
         {
             MainCanvas.canBePause = false;
-            
+
             StartCoroutine(Wait());
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject menuPanel;
-    [SerializeField] bool isPause=false;
+    [SerializeField] bool isPause = false;
 
     // Update is called once per frame
     void Update()

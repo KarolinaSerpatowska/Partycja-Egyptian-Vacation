@@ -22,14 +22,25 @@ public class ScoreText : MonoBehaviour
     {
         if (counter == 0)
         {
-            MainCanvas.canBePause = false;
-            winPanel.SetActive(true);
-            Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            StartCoroutine(Wait());
+            //MainCanvas.canBePause = false;
+            //winPanel.SetActive(true);
+            //Time.timeScale = 0;
+            //Cursor.lockState = CursorLockMode.None;
+            //Cursor.visible = true;
         }
         if (counter < 0) counter = 0;
         text.text = "Enemies remain: " + counter.ToString();
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(4);
+        MainCanvas.canBePause = false;
+        winPanel.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void TryAgain()

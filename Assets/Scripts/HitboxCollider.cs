@@ -22,7 +22,7 @@ public class HitboxCollider : MonoBehaviour
             enemy.incAttackCounter(1);
             attacable.TakeDamge(other.transform.root.GetComponent<Attacable>().getStats().baseAttack);
         }
-        else if(other.gameObject.tag=="LavaHitbox" && this.gameObject.tag=="Player")
+        else if (other.gameObject.tag == "LavaHitbox" && this.gameObject.tag == "Player")
         {
             Debug.Log("Lava KOLIZJA");
             attacable.TakeDamge(attacable.getStats().health);
@@ -33,7 +33,13 @@ public class HitboxCollider : MonoBehaviour
             Debug.Log("SPECIAL KOLIZJA");
             Attacable enemy = other.transform.root.GetComponent<Attacable>();
             enemy.incAttackCounter(1);
-            attacable.TakeDamge(other.transform.root.GetComponent<Attacable>().getStats().baseAttack+10);
+            attacable.TakeDamge(other.transform.root.GetComponent<Attacable>().getStats().baseAttack + 10);
+        }
+        else if (other.gameObject.tag == "Heal" && this.gameObject.tag == "Player")
+        {
+            Debug.Log("HEAL");
+            attacable.heal(50);
+            Destroy(other.gameObject);
         }
     }
 
